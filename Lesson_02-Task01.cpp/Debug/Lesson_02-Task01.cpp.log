@@ -1,0 +1,5 @@
+﻿  Lesson_02-Task01.cpp.cpp
+D:\Documents\MyPrograms\Synergy\Lesson_02-Task01.cpp\Lesson_02-Task01.cpp.cpp(14,12): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\Documents\MyPrograms\Synergy\Lesson_02-Task01.cpp\Lesson_02-Task01.cpp.cpp(15,12): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\Documents\MyPrograms\Synergy\Lesson_02-Task01.cpp\Lesson_02-Task01.cpp.cpp(18,12): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  Lesson_02-Task01.cpp.vcxproj -> D:\Documents\MyPrograms\Synergy\Lesson_02-Task01.cpp\Debug\Lesson_02-Task01.cpp.exe

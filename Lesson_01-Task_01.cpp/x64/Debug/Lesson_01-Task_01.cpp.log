@@ -1,0 +1,4 @@
+﻿  Lesson_01-Task_01.cpp.cpp
+D:\Documents\MyPrograms\Synergy\Lesson_01-Task_01.cpp\Lesson_01-Task_01.cpp.cpp(27,27): warning C4311: приведение типов: усечение указателя из "const char *" в "int"
+D:\Documents\MyPrograms\Synergy\Lesson_01-Task_01.cpp\Lesson_01-Task_01.cpp.cpp(27,27): warning C4302: приведение типов: усечение из "const char *" к "int"
+  Lesson_01-Task_01.cpp.vcxproj -> D:\Documents\MyPrograms\Synergy\Lesson_01-Task_01.cpp\x64\Debug\Lesson_01-Task_01.cpp.exe
