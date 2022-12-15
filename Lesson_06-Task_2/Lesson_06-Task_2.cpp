@@ -1,16 +1,18 @@
-﻿#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+﻿//С помощью функций rand() и srand() создайте ГПСЧ, который выводит количество очков, 
+//полученных при бросании двух игральных кубиков.
+//Не забудьте учесть теорию вероятностей. Выведите не менее 100 исходов.
+
+#include <iostream>
+using namespace std;
 
 int main(int argc, char const* argv[])
 {
-    srand(time(NULL));
-
-    for (size_t i = 0; i <= 100; i++)
+    srand(time(0));
+    for (int i = 0; i < 10; i++)
     {
-        int first = rand() % 7;
-        int second = rand() % 7;
-        printf("Summa ohckov: %d\n", first + second);
+        for (int j = 0; j < 10; j++)
+            cout << (rand() % 6 + 1)+ (rand() % 6 + 1) << " ";
+        cout << endl;
     }
 
     return 0;

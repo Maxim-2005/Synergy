@@ -1,21 +1,15 @@
-﻿#include <iostream>
+﻿//Создать свой вариант простейшего ГПСЧ, вывести 100 полученных чисел.
 
-unsigned int PRNG()
-{
-    static unsigned int seed{ 5323 };
-    seed = 8253729 * seed + 2396403;
-
-    return seed % 32768;
-}
+#include <iostream>
+using namespace std;
 
 int main()
 {
-    for (int count{ 1 }; count <= 100; ++count)
+    for (int i = 1; i <= 10; i++)
     {
-        std::cout << PRNG() << '\t';
-
-        if (count % 5 == 0)
-            std::cout << '\n';
+        for (int j = 1; j <= 10; j++)
+            cout << (time(0) * j + clock() * i) % 100 << " ";
+        cout << endl;
     }
 
     return 0;
