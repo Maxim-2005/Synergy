@@ -1,0 +1,7 @@
+﻿  Basic_05-Task_2.cpp
+D:\Documents\MyPrograms\Synergy\Basic_05-Task_2\Basic_05-Task_2.cpp(48,32): warning C4305: аргумент: усечение из "double" в "T"
+          with
+          [
+              T=float
+          ]
+  Basic_05-Task_2.vcxproj -> D:\Documents\MyPrograms\Synergy\Basic_05-Task_2\Debug\Basic_05-Task_2.exe
