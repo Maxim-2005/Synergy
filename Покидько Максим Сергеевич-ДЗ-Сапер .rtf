@@ -1,0 +1,288 @@
+{\rtf1\ansi\ansicpg1251\deff0\nouicompat\deflang1049{\fonttbl{\f0\fnil\fcharset204 Consolas;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil Consolas;}{\f3\fnil\fcharset0 Consolas;}}
+{\colortbl ;\red0\green0\blue0;\red0\green77\blue187;\red0\green128\blue0;\red128\green128\blue128;\red163\green21\blue21;\red0\green0\blue255;\red0\green128\blue128;\red43\green145\blue175;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sl240\slmult1\cf1\ul\b\f0\fs28\'cf\'ee\'ea\'e8\'e4\'fc\'ea\'ee \'cc\'e0\'ea\'f1\'e8\'ec \'d1\'e5\'f0\'e3\'e5\'e5\'e2\'e8\'f7\ulnone\par
+\b0\par
+\fs20\'c4\'e8\'f1\'f6\'e8\'ef\'eb\'e8\'ed\'e0\par
+Start\par
+\par
+\'c3\'f0\'f3\'ef\'ef\'e0\par
+\'d0C++\'f8-\'d6\'cf\'c4-242211/30-11\'cc\'ce\'ee\par
+\cf0\f1\fs22\lang9\par
+\cf2\b\f0\fs36\lang1049\'c4\'ee\'ec\'e0\'f8\'ed\'e5\'e5 \'e7\'e0\'e4\'e0\'ed\'e8\'e5 \'d1\'e0\'ef\'e5\'f0\par
+\par
+\cf0\ul\'c7\'e0\'e4\'e0\'ed\'e8\'e5 \'d1\'e0\'ef\'e5\'f0\cf2\ulnone\par
+\cf3\b0\f2\fs19\lang9\par
+\fs16 /*\cf1\par
+\cf3  *\f0\lang1049\'c4\'c7_1: \'c8\'f1\'f5\'ee\'e4\'ed\'fb\'e9 \'ea\'ee\'e4 \'ef\'f0\'ee\'e3\'f0\'e0\'ec\'ec\'fb \'ed\'e0\'f7\'e8\'ed\'e0\'e5\'f2\'f1\'ff \'f1 \'e4\'e8\'f0\'e5\'ea\'f2\'e8\'e2 \'ef\'ee\'e4\'ea\'eb\'fe\'f7\'e5\'ed\'e8\'ff \'e1\'e8\'e1\'eb\'e8\'ee\'f2\'e5\'ea\'e8,\cf1\par
+\cf3  *\tab\'e2\'ea\'eb\'fe\'f7\'e5\'ed\'e8\'ff \'e5\'e5 \'e8\'ec\'e5\'ed \'e2 \'e3\'eb\'ee\'e1\'e0\'eb\'fc\'ed\'ee\'e5 \'ef\'f0\'ee\'f1\'f2\'f0\'e0\'ed\'f1\'f2\'e2\'ee, \'ee\'e1\'fa\'ff\'e2\'eb\'e5\'ed\'e8\'ff \'e3\'eb\'ee\'e1\'e0\'eb\'fc\'ed\'fb\'f5\cf1\par
+\cf3  *\tab\'ef\'e5\'f0\'e5\'ec\'e5\'ed\'ed\'fb\'f5 \'e8 \'ea\'ee\'ed\'f1\'f2\'e0\'ed\'f2\'fb. \'c0 \'e8\'ec\'e5\'ed\'ed\'ee:\cf1\par
+\cf3  *\tab\tab 1. \'c4\'e2\'f3\'ec\'e5\'f0\'ed\'fb\'e9 \'ec\'e0\'f1\'f1\'e8\'e2 \'f7\'e8\'f1\'e5\'eb 100 * 100 \'ec\'e8\'ed\'ed\'ee\'e3\'ee \'ef\'ee\'eb\'ff;\cf1\par
+\cf3  *\tab\tab 2. \'c5\'f9\'e5 \'ee\'e4\'e8\'ed \'e4\'e2\'f3\'ec\'e5\'f0\'ed\'fb\'e9 \'ec\'e0\'f1\'f1\'e8\'e2 \'f7\'e8\'f1\'e5\'eb 100 * 100 \'ee\'f2\'ee\'e1\'f0\'e0\'e6\'e0\'e5\'ec\'ee\'e9 \'ea\'e0\'f0\'f2\'fb;\cf1\par
+\cf3  *\tab\tab 3. \'c8 \'f2\'f0\'e8 \'f7\'e8\'f1\'eb\'ee\'e2\'fb\'f5 \'ea\'ee\'ed\'f1\'f2\'e0\'ed\'f2\'fb, \'f0\'e0\'e7\'ec\'e5\'f0\'e0 \'ea\'e0\'f0\'f2\'fb \'e8 \'ea\'ee\'eb\'e8\'f7\'e5\'f1\'f2\'e2\'e0 \'ec\'e8\'ed.\cf1\par
+\cf3  *\tab\'c4\'e0\'eb\'e5\'e5, \'e8\'f1\'ef\'ee\'eb\'ed\'e5\'ed\'e8\'e5 \'ef\'f0\'ee\'e3\'f0\'e0\'ec\'ec\'fb \'ef\'e5\'f0\'e5\'f5\'ee\'e4\'e8\'f2 \'ea \'f4\'f3\'ed\'ea\'f6\'e8\'e8 Main, \'f1\'ec. \'ec\'e5\'f2\'ea\'f3 \'c4\'c7_2.\cf1\par
+\cf3  */\cf1\par
+\par
+ \cf3 //\'f3 \'ed\'e0\'f1 \'e1\'f3\'e4\'e5\'f2 \'ef\'ee\'eb\'e5 9\'f59 \'ea\'eb\'e5\'f2\'ee\'ea (\'e7\'e0\'e4\'e0\'e5\'ec 10\'f510, \'f7\'f2\'ee \'e1\'fb \'e5\'f9\'e5 \'e2\'ef\'e8\'f1\'e0\'f2\'fc \'ed\'f3\'ec\'e5\'f0\'e0\'f6\'e8\'fe)\cf1\par
+ \cf3 //\'e1\'f3\'e4\'e5\'f2 10 \'e1\'ee\'ec\'e1 (\'e7\'e2\'e5\'e7\'e4\'ee\'f7\'e5\'ea)\cf1\par
+\par
+\cf4 #include\cf1  \cf5 <iostream>\cf1\par
+\cf6 using\cf1  \cf6 namespace\cf1  std;\par
+\cf6 int\cf1  field[100][100];\par
+\cf3 // -1 - mine\cf1\par
+\cf3 // 0-8 - cell\cf1\par
+\cf6 int\cf1  field_p[100][100];\par
+\cf3 // -2 - closed\cf1\par
+\cf3 // -1  - flag\cf1\par
+\cf3 // 0-8  - opened\cf1\par
+\cf6 const\cf1  \cf6 int\cf1  N = 9, M = 9, K = 10;\par
+\par
+\par
+\cf3 /*\cf1\par
+\cf3  *\'c4\'c7_3: \'d4\'f3\'ed\'ea\'f6\'e8\'ff print_field \'ee\'f7\'e8\'f9\'e0\'e5\'f2 \'fd\'ea\'f0\'e0\'ed \'e8 \'e7\'e0\'ef\'f3\'f1\'ea\'e0\'e5\'f2 \'e4\'e2\'e0 \'f6\'e8\'ea\'eb\'e0:\cf1\par
+\cf3  *\tab 1. \'c2\'fb\'e2\'ee\'e4\'e8\'f2 \'f1\'f2\'f0\'ee\'ea\'f3 \'f1 \'ed\'f3\'ec\'e5\'f0\'e0\'f6\'e8\'e5\'e9 \'ea\'ee\'eb\'ee\'ed\'ee\'ea, \'f1 \'ef\'f0\'ee\'e2\'e5\'f0\'ea\'ee\'e9 \'f1\'f7\'e5\'f2\'f7\'e8\'ea\'e0 \'e4\'eb\'ff \'ef\'f0\'ee\'e1\'e5\'eb\'e0;\cf1\par
+\cf3  *\tab 2. \'c4\'e2\'ee\'e9\'ed\'ee\'e9 \'f6\'e8\'ea\'eb \'ef\'e5\'f7\'e0\'f2\'e0\'e5\'f2 \'ea\'e0\'f0\'f2\'f3, \'f1 \'ef\'f0\'ee\'e2\'e5\'f0\'ea\'ee\'e9 \'f1\'f7\'e5\'f2\'f7\'e8\'ea\'e0 \'e4\'eb\'ff \'ef\'f0\'ee\'e1\'e5\'eb\'e0 \'e8 \'ef\'f0\'ee\'e2\'e5\'f0\'ea\'ee\'e9\cf1\par
+\cf3  *\tab\f3\lang1033\tab\f0\lang1049\'ff\'f7\'e5\'e5\'ea \'e4\'e2\'f3\'ec\'e5\'f0\'ed\'ee\'e3\'ee \'ec\'e0\'f1\'f1\'e8\'e2\'e0 \'ea\'e0\'f0\'f2\'fb: \'e7\'e0\'ea\'f0\'fb\'f2\'e0, \'f4\'eb\'e0\'e6\'e5\'ea, \'ec\'e8\'ed\'e0 \'e8\'eb\'e8 \'f1\'f7\'e5\'f2\'f7\'e8\'ea \'ec\'e8\'ed.\cf1\par
+\cf3  */\cf1\par
+\par
+\cf6 void\cf1  print_field()\par
+\{\par
+\tab system(\cf5 "cls"\cf1 );\par
+\tab cout \cf7 <<\cf1  \cf5 "  "\cf1 ;\par
+\tab\cf6 for\cf1  (\cf6 int\cf1  i = 0; i < M; ++i)\par
+\tab\{\par
+\tab\tab cout \cf7 <<\cf1  \cf5 " "\cf1  \cf7 <<\cf1  i + 1;\par
+\tab\tab\cf6 if\cf1  (i + 1 < 10) cout \cf7 <<\cf1  \cf5 ' '\cf1 ;\par
+\tab\}\par
+\tab cout \cf7 <<\cf1  endl;\par
+\tab\cf6 for\cf1  (\cf6 int\cf1  i = 0; i < N; i++)\par
+\tab\{\par
+\par
+\tab\tab cout \cf7 <<\cf1  i + 1 \cf7 <<\cf1  \cf5 " "\cf1 ;\par
+\tab\tab\cf6 if\cf1  (i + 1 < 10) cout \cf7 <<\cf1  \cf5 ' '\cf1 ;\par
+\par
+\tab\tab\cf6 for\cf1  (\cf6 int\cf1  j = 0; j < M; j++) \{\par
+\tab\tab\tab\cf6 if\cf1  (field_p[i][j] == -2) cout \cf7 <<\cf1  \cf5 "_  "\cf1 ;\par
+\tab\tab\tab\cf6 else\cf1  \cf6 if\cf1  (field_p[i][j] == -1) cout \cf7 <<\cf1  \cf5 "f  "\cf1 ;\par
+\tab\tab\tab\cf6 else\cf1  \cf6 if\cf1  (field_p[i][j] == -3) cout \cf7 <<\cf1  \cf5 "*  "\cf1 ;\par
+\tab\tab\tab\cf6 else\cf1  cout \cf7 <<\cf1  field_p[i][j] \cf7 <<\cf1  \cf5 "  "\cf1 ;\par
+\tab\tab\}\par
+\tab\tab cout \cf7 <<\cf1  endl;\par
+\tab\}\par
+\tab cout \cf7 <<\cf1  endl \cf7 <<\cf1  endl \cf7 <<\cf1  endl;\par
+\}\par
+\par
+\par
+\cf3 /*\cf1\par
+\cf3  *\'c4\'c7_5: \'d4\'f3\'ed\'ea\'f6\'e8\'ff dfs \'ef\'f0\'e8\'ed\'e8\'ec\'e0\'e5\'f2 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'fb, \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'f2 \'e8\'f5 \'ed\'e0 \'ef\'f0\'e8\'ed\'e0\'e4\'eb\'e5\'e6\'ed\'ee\'f1\'f2\'fc \'ea\'e0\'f0\'f2\'e5 \'e8 \'e7\'e0\'ea\'f0\'fb\'f2\'ee\'f1\'f2\'fc,\cf1\par
+\cf3  *\tab\'f7\'f2\'ee \'ed\'e5 \'e8\'ec\'e5\'e5\'f2 \'f1\'ec\'fb\'f1\'eb\'e0 \'ef\'f0\'e8 \'ef\'e5\'f0\'e2\'e8\'f7\'ed\'ee\'ec \'e2\'ed\'e5\'f8\'ed\'e5\'ec \'e2\'fb\'e7\'ee\'e2\'e5, \'f2\'ee\'eb\'ea\'ee \'ef\'f0\'e8 \'f0\'e5\'ea\'f3\'f0\'f1\'e8\'e2\'ed\'ee\'ec.\cf1\par
+\cf3  *\tab\'c7\'e0\'f2\'e5\'ec \'ee\'ea\'f0\'fb\'e2\'e0\'e5\'f2 \'f2\'e5\'ea\'f3\'f9\'f3\'fe \'ff\'f7\'e5\'e9\'ea\'f3, \'ef\'e5\'f0\'e5\'ed\'ee\'f1\'ff \'e2 \'ed\'e5\'e5 \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'e5 \'e8\'e7 \'ec\'e0\'f1\'f1\'e8\'e2\'e0 \'ec\'e8\'ed\'ed\'ee\'e9 \'ea\'e0\'f0\'f2\'fb.\cf1\par
+\cf3  *\tab\'c4\'e0\'eb\'e5\'e5 \'fd\'f2\'e0 \'ff\'f7\'e5\'e9\'ea\'e0 \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'f2\'f1\'ff \'ed\'e0 \'ef\'f3\'f1\'f2\'ee\'f2\'f3, \'ed\'ee \'f3\'e6\'e5 \'ed\'e0 \'ec\'e8\'ed\'ed\'ee\'ec \'ef\'ee\'eb\'e5 \'e8 \'e2 \'f1\'eb\'f3\'f7\'e0\'e5 \'ed\'e0\'eb\'e8\'f7\'e8\'ff\cf1\par
+\cf3  *\tab\'e2 \'ed\'e5\'e9 \'ed\'e5\'ed\'f3\'eb\'e5\'e2\'ee\'e3\'ee \'f1\'f7\'e5\'f2\'f7\'e8\'ea\'e0 \'f1\'ee\'f1\'e5\'e4\'ed\'e8\'f5 \'ec\'e8\'ed, \'f1\'f0\'e0\'e1\'e0\'f2\'fb\'e2\'e0\'e5\'f2 \'ef\'e5\'f0\'e2\'fb\'e9 return, \'ea\'ee\'f2\'ee\'f0\'fb\'e9 \'f0\'e5\'ea\'f3\'f0\'f1\'e8\'e2\'ed\'ee\cf1\par
+\cf3  *\tab\'e1\'f3\'e4\'e5\'f2 \'ef\'e5\'f0\'e5\'e7\'e0\'ef\'f3\'f1\'ea\'e0\'f2\'fc \'f1\'e2\'ee\'fe \'e6\'e5 \'f4\'f3\'ed\'ea\'f6\'e8\'fe, \'e0 \'ed\'e5 \'e2\'fb\'f5\'ee\'e4\'e8\'f2\'fc \'e8\'e7 \'ed\'e5\'e5, \'ea\'e0\'ea \'ee\'e1\'fb\'f7\'ed\'ee \'ef\'f0\'e8\'ed\'ff\'f2\'ee.\cf1\par
+\cf3  *\tab\'d1\'eb\'e5\'e4\'ee\'ec \'f0\'e0\'e1\'ee\'f2\'e0\'e5\'f2 \'e4\'e2\'ee\'e9\'ed\'ee\'e9 \'f6\'e8\'ea\'eb, \'ee\'e1\'f5\'ee\'e4\'ff\'f9\'e8\'e9 \'f1\'ee\'f1\'e5\'e4\'ed\'e8\'e5 \'ea\'eb\'e5\'f2\'ea\'e8 \'f1 \'e8\'f1\'ea\'eb\'fe\'f7\'e5\'ed\'e8\'e5\'ec \'f1\'e0\'ec\'ee\'e9 \'f2\'e5\'ea\'f3\'f9\'e5\'e9\cf1\par
+\cf3  *\tab\'ff\'f7\'e5\'e9\'ea\'e8. \'c2 \'f2\'e5\'eb\'e5 \'f6\'e8\'ea\'eb\'e0 \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'f2\'f1\'ff \'f3\'f1\'eb\'ee\'e2\'e8\'e5, \'f6\'e5\'eb\'fc\'fe \'ea\'ee\'f2\'ee\'f0\'ee\'e3\'ee \'ff\'e2\'eb\'ff\'e5\'f2\'f1\'ff \'e7\'e0\'ef\'f3\'f1\'ea \'f0\'e5\'ea\'f3\'f0\'f1\'e8\'e8,\cf1\par
+\cf3  *\tab\'ed\'ee \'f3\'e6\'e5 \'f1 \'ed\'ee\'e2\'fb\'ec\'e8 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'e0\'ec\'e8, \'ef\'ee\'eb\'f3\'f7\'e5\'ed\'ed\'fb\'ec\'e8 \'e2 \'f5\'ee\'e4\'e5 \'ee\'e1\'f5\'ee\'e4\'e0 \'f1\'ee\'f1\'e5\'e4\'ed\'e8\'f5 \'ff\'f7\'e5\'e5\'ea. \'cd\'e5\'e8\'f1\'ef\'ee\'eb\'e5\'ed\'e8\'e5\cf1\par
+\cf3  *\tab\'f3\'f1\'eb\'ee\'e2\'e8\'ff, \'e2\'ee-\'ef\'e5\'f0\'e2\'fb\'f5 \'ef\'f0\'e5\'e4\'ee\'f2\'e2\'f0\'e0\'f9\'e0\'e5\'f2 \'e7\'e0\'f6\'e8\'ea\'eb\'e8\'e2\'e0\'ed\'e8\'e5 \'f1\'e0\'ec\'ee\'e9 \'f4\'f3\'ed\'ea\'f6\'e8\'e8, \'e0 \'e2\'ee-\'e2\'f2\'ee\'f0\'fb\'f5, \'ef\'ee\'f1\'eb\'e5 \'ef\'e5\'f0\'e5\'e1\'ee\'f0\'e0\cf1\par
+\cf3  *\tab\'e2\'f1\'e5\'f5 \'e2\'e0\'f0\'e8\'e0\'ed\'f2\'ee\'e2 \'e8 \'e2\'fb\'ef\'ee\'eb\'ed\'e5\'ed\'e8\'ff \'f6\'e8\'ea\'eb\'e0 \'e1\'e5\'e7 \'e2\'fb\'ef\'ee\'eb\'e5\'ed\'e8\'ff \'f3\'f1\'eb\'ee\'e2\'e8\'ff, \'e2\'fb\'e9\'e4\'e5\'f2 \'e8\'e7 \'f4\'f3\'ed\'ea\'f6\'e8\'e8.\cf1\par
+\cf3  *\tab\'dd\'f2\'ee \'ed\'e5 \'f2\'ee\'eb\'fc\'ea\'ee \'f1\'e0\'ec\'fb\'e9 \'f1\'eb\'ee\'e6\'ed\'fb\'e9 \'e4\'eb\'ff \'ef\'ee\'ed\'e8\'ec\'e0\'ed\'e8\'ff \'fd\'eb\'e5\'ec\'e5\'ed\'f2 \'ef\'f0\'ee\'e3\'f0\'e0\'ec\'ec\'fb, \'ed\'ee \'e5\'f9\'e5 \'e8 \'f1\'e0\'ec\'fb\'e9 \'f2\'ee\'f0\'ec\'ee\'e7\'ff\'f9\'e8\'e9\cf1\par
+\cf3  *\tab\'ef\'f0\'ee\'f6\'e5\'f1\'f1\'ee\'f0, \'f2\'e0\'ea \'ea\'e0\'ea \'ec\'ed\'ee\'e3\'ee\'ea\'f0\'e0\'f2\'ed\'ee \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'f2 \'ee\'e4\'ed\'e8 \'e8 \'f2\'e5 \'e6\'e5 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'fb.\cf1\par
+\cf3  */\cf1\par
+\par
+\cf6 void\cf1  dfs(\cf6 int\cf1  \cf4 x\cf1 , \cf6 int\cf1  \cf4 y\cf1 ) \{\par
+\tab\cf6 if\cf1  (\cf4 x\cf1  < 0 || \cf4 x\cf1  >= N || \cf4 y\cf1  < 0 || \cf4 y\cf1  >= M || field_p[\cf4 x\cf1 ][\cf4 y\cf1 ] > -2) \cf6 return\cf1 ;\par
+\tab field_p[\cf4 x\cf1 ][\cf4 y\cf1 ] = field[\cf4 x\cf1 ][\cf4 y\cf1 ];\par
+\tab\cf6 if\cf1  (field[\cf4 x\cf1 ][\cf4 y\cf1 ] > 0) \cf6 return\cf1 ;\par
+\tab\cf6 for\cf1  (\cf6 int\cf1  i2 = \cf4 x\cf1  - 1; i2 <= \cf4 x\cf1  + 1; ++i2) \{\par
+\tab\tab\cf6 for\cf1  (\cf6 int\cf1  j2 = \cf4 y\cf1  - 1; j2 <= \cf4 y\cf1  + 1; ++j2) \{\par
+\tab\tab\tab\cf6 if\cf1  (i2 != \cf4 x\cf1  || j2 != \cf4 y\cf1 ) dfs(i2, j2);\par
+\tab\tab\}\par
+\tab\}\par
+\}\par
+\par
+\par
+\cf3 /*\cf1\par
+\cf3  *\'c4\'c7_4: \'d4\'f3\'ed\'ea\'f6\'e8\'ff open_cell \'ef\'f0\'e8\'ed\'e8\'ec\'e0\'e5\'f2 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'fb, \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'f2 \'e8\'f5 \'ed\'e0 \'ed\'e0\'eb\'e8\'f7\'e8\'e5 \'ec\'e8\'ed\'fb, \'e2\'ee\'e7\'e2\'f0\'e0\'f9\'e0\'ff\cf1\par
+\cf3  *\tab\'ea\'ee\'ed\'e5\'f6 \'e8\'e3\'f0\'fb. \'c7\'e0\'f2\'e5\'ec \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'f2 \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'e5 \'ff\'f7\'e5\'e9\'ea\'e8 \'e8 \'e2 \'f1\'eb\'f3\'f7\'e0\'e5 \'ed\'e0\'eb\'e8\'f7\'e8\'ff \'ec\'e8\'ed \'ef\'ee \'f1\'ee\'f1\'e5\'e4\'f1\'f2\'e2\'f3\cf1\par
+\cf3  *\tab\'ef\'e5\'f0\'e5\'ed\'ee\'f1\'e8\'f2 \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'e5 \'f1\'f7\'e5\'f2\'f7\'e8\'ea\'e0 \'e2 \'ec\'e0\'f1\'f1\'e8\'e2 \'ee\'f2\'ee\'e1\'f0\'e0\'e6\'e0\'e5\'ec\'ee\'e9 \'ea\'e0\'f0\'f2\'fb. \'c2 \'e7\'e0\'ea\'eb\'fe\'f7\'e5\'ed\'e8\'e8 \'e2\'fb\'e7\'fb\'e2\'e0\'e5\'f2\'f1\'ff\cf1\par
+\cf3  *\tab\'f4\'f3\'ed\'ea\'f6\'e8\'ff dfs (\'f1\'ec. \'c4\'c7_5), \'f0\'e0\'f1\'ea\'f0\'fb\'e2\'e0\'fe\'f9\'e0\'ff \'f1\'ee\'ef\'f0\'e8\'ea\'e0\'f1\'e0\'fe\'f9\'e8\'e5\'f1\'ff \'ef\'f3\'f1\'f2\'fb\'e5 \'ff\'f7\'e5\'e9\'ea\'e8.\cf1\par
+\cf3  */\cf1\par
+\par
+ \cf3 // \'e8\'f1\'f2\'e8\'ed\'e0 - \'ed\'e5 \'e2\'e7\'ee\'f0\'e2\'e0\'eb\'e8\'f1\'fc \'ed\'e0 \'e1\'ee\'ec\'e1\'e5\cf1\par
+ \cf3 //\'e7\'e0\'e4\'e0\'e5\'ec \'f2\'e8\'ef boolean, \'f2\'e0\'ea \'ea\'e0\'ea \'f3 \'ed\'e0\'f1 \'f3\'f1\'eb\'ee\'e2\'e8\'ff \'e7\'e0\'e2\'e8\'f1\'ff\'f2 \'ee\'f2 \'f2\'ee\'e3\'ee, \'ef\'f0\'e0\'e2\'e4\'e0 \'fd\'f2\'ee \'e8\'eb\'e8 \'ed\'e5\'f2\cf1\par
+ \cf3 //\'f7\'e0\'f1\'f2\'fc \'ea\'ee\'e4\'e0 \'f1 bool \'e1\'f3\'e4\'e5\'f2 \'ee\'ef\'f0\'e5\'e4\'e5\'eb\'ff\'f2\'fc, \'f1\'ea\'ee\'eb\'fc\'ea\'ee \'e1\'ee\'ec\'e1 \'ed\'e0\'f5\'ee\'e4\'e8\'f2\'f1\'ff \'e2\'ee\'ea\'f0\'f3\'e3 \'ee\'f2\'ea\'f0\'fb\'f2\'ee\'e9 \'ea\'eb\'e5\'f2\'ea\'e8\cf1\par
+ \cf3 //\'f1\'ec\'ee\'f2\'f0\'e8\'ec, \'ed\'e5 \'e2\'e7\'ee\'f0\'e2.\cf1\par
+\cf6 bool\cf1  open_cell(\cf6 int\cf1  \cf4 x\cf1 , \cf6 int\cf1  \cf4 y\cf1 )\par
+\{\par
+\tab\cf6 if\cf1  (field[\cf4 x\cf1 ][\cf4 y\cf1 ] == -1) \cf6 return\cf1  \cf6 false\cf1 ;\par
+\tab\cf6 if\cf1  (field[\cf4 x\cf1 ][\cf4 y\cf1 ] > 0) \{\par
+\tab\tab field_p[\cf4 x\cf1 ][\cf4 y\cf1 ] = field[\cf4 x\cf1 ][\cf4 y\cf1 ];\par
+\tab\tab\cf6 return\cf1  \cf6 true\cf1 ;\par
+\tab\}\par
+\tab dfs(\cf4 x\cf1 , \cf4 y\cf1 );\par
+\}\par
+\par
+\cf3 /*\cf1\par
+\cf3  *\'c4\'c7_6: \'d4\'f3\'ed\'ea\'f6\'e8\'ff is_win \'ee\'e1\'f5\'ee\'e4\'e8\'f2 \'e4\'e2\'ee\'e9\'ed\'fb\'ec \'f6\'e8\'ea\'eb\'ee\'ec \'ee\'f2\'ee\'e1\'f0\'e0\'e6\'e0\'e5\'ec\'f3\'fe \'ea\'e0\'f0\'f2\'f3 \'e8 \'f1\'f3\'ec\'ec\'e8\'f0\'f3\'e5\'f2 \'e2\'f1\'e5 \'ee\'f2\'ea\'f0\'fb\'f2\'fb\'e5\cf1\par
+\cf3  *\tab\'ff\'f7\'e5\'e9\'ea\'e8. \'c2 \'e8\'f2\'ee\'e3\'e5 \'e2\'ee\'e7\'e2\'f0\'e0\'f9\'e0\'e5\'f2 \'f0\'e0\'e2\'e5\'ed\'f1\'f2\'e2\'ee \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'ff \'f1\'f7\'e5\'f2\'f7\'e8\'ea\'e0 \'f1 \'f7\'e8\'f1\'eb\'ee\'ec \'ee\'f2\'ea\'f0\'fb\'f2\'fb\'f5 \'ff\'f7\'e5\'e5\'ea.\cf1\par
+\cf3  */\cf1\par
+\par
+ \cf3 //\'f1\'ec\'ee\'f2\'f0\'e8\'ec: \'f1\'eb\'f3\'f7\'e0\'e9 \'e2\'fb\'e8\'e3\'f0\'fb\'f8\'e0\cf1\par
+\cf6 bool\cf1  is_win() \{\par
+\tab\cf6 int\cf1  opened = 0;\par
+\tab\cf6 for\cf1  (\cf6 int\cf1  i = 0; i < N; i++) \{\par
+\tab\tab\cf6 for\cf1  (\cf6 int\cf1  j = 0; j < M; j++) \{\par
+\tab\tab\tab\cf6 if\cf1  (field_p[i][j] >= 0) opened++; \cf3 //0 1 2 3\cf1\par
+\tab\tab\}\par
+\tab\}\par
+\tab\cf6 return\cf1  (N * M - K == opened); \cf3 //9*9-10\cf1\par
+\}\par
+\par
+\cf3 /*\cf1\par
+\cf3  *\'c4\'c7_7: \'d4\'f3\'ed\'ea\'f6\'e8\'ff end_game \'ef\'f0\'e8\'ed\'e8\'ec\'e0\'e5\'f2 \'eb\'ee\'e3\'e8\'f7\'e5\'f1\'ea\'ee\'e5 \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'e5 c false \'ef\'ee-\'f3\'ec\'ee\'eb\'f7\'e0\'ed\'e8\'fe. \'c4\'e2\'ee\'e9\'ed\'fb\'ec \'f6\'e8\'ea\'eb\'ee\'ec\cf1\par
+\cf3  *\tab\'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'fb \'ee\'e1\'ee\'e8\'f5 \'e4\'e2\'f3\'ec\'e5\'f0\'ed\'fb\'f5 \'ec\'e0\'f1\'f1\'e8\'e2\'ee\'e2. \'c7\'e0\'ea\'f0\'fb\'f2\'fb\'e5 \'ff\'f7\'e5\'e9\'ea\'e8 \'ee\'f2\'ea\'f0\'fb\'e2\'e0\'fe\'f2\'f1\'ff, \'ec\'e8\'ed\'fb \'ef\'e5\'f0\'e5\'ed\'ee\'f1\'ff\'f2\'f1\'ff\cf1\par
+\cf3  *\tab\'ed\'e0 \'ee\'f2\'ee\'e1\'f0\'e0\'e6\'e0\'e5\'ec\'f3\'fe \'ea\'e0\'f0\'f2\'f3. \'cf\'ee\'f1\'eb\'e5 \'f7\'e5\'e3\'ee \'e2\'fb\'e7\'fb\'e2\'e0\'e5\'f2\'f1\'ff \'f4\'f3\'ed\'ea\'f6\'e8\'ff print_field (\'f1\'ec. \'c4\'c7_3) \'e4\'eb\'ff\cf1\par
+\cf3  *\tab\'ee\'f2\'f0\'e8\'f1\'ee\'e2\'ea\'e8 \'e8\'e3\'f0\'ee\'e2\'ee\'e9 \'ea\'e0\'f0\'f2\'fb.\cf1\par
+\cf3  */\cf1\par
+\par
+ \cf3 //\'f1\'f3\'f7\'e0\'e9 \'ef\'f0\'ee\'e8\'e3\'f0\'fb\'f8\'e0 (\'e1\'f3\'ec-\'e1\'f3\'ec)\cf1\par
+\cf6 void\cf1  end_game(\cf6 bool\cf1  \cf4 is_win\cf1  = \cf6 false\cf1 )\par
+\{\par
+\tab\cf6 for\cf1  (\cf6 int\cf1  i = 0; i < N; i++) \{\par
+\tab\tab\cf6 for\cf1  (\cf6 int\cf1  j = 0; j < M; j++) \{\par
+\tab\tab\tab\cf6 if\cf1  (field_p[i][j] == -1) field_p[i][j] = -2;\par
+\tab\tab\tab\cf6 if\cf1  (field[i][j] == -1) field_p[i][j] = -3;\par
+\tab\tab\}\par
+\tab\}\par
+\tab print_field();\par
+\tab\cf3 //\'e2 \'e7\'e0\'e2\'e8\'f1\'e8\'ec\'ee\'f1\'f2\'e8 \'ee\'f2 \'f0\'e5\'e7\'f3\'eb\'fc\'f2\'e0\'f2\'e0 \'f3 \'ed\'e0\'f1 \'ed\'e0 \'fd\'ea\'f0\'e0\'ed\'e5 \'ef\'ee\'ff\'e2\'e8\'f2\'f1\'ff \'ed\'e0\'e4\'ef\'e8\'f1\'fc\cf1\par
+\tab cout \cf7 <<\cf1  \cf5 "You "\cf1  \cf7 <<\cf1  (\cf4 is_win\cf1  ? \cf5 "win"\cf1  : \cf5 "lost"\cf1 ) \cf7 <<\cf1  \cf5 ",\\nwanna start new game?:\\n"\cf1 ;\par
+\tab\cf8 string\cf1  s;\par
+\tab cin \cf7 >>\cf1  s;\par
+\}\par
+\cf3 //1\'f1\'eb - \'ec\'fb \'e2\'e7\'ee\'f0\'e2\'e0\'eb\'e8\'f1\'fc\cf1\par
+\cf3 //2\'f1\'eb - \'ec\'fb \'e6\'e8\'e2\'fb \'e8 \'e7\'e0\'ea\'ee\'ed\'f7\'e8\'eb\'e8\'f1\'fc \'ea\'eb\'e5\'f2\'ea\'e8\cf1\par
+\cf3 //3\'f1\'eb - \'ec\'fb \'e8\'e3\'f0\'e0\'eb\'e8 \'ec\'fb \'e8\'e3\'f0\'e0\'eb\'e8 \'e8 \'f1\'eb\'f3\'f7\'e0\'e9\'ed\'ee \'ed\'e0 \'ec\'e8\'ed\'f3 \'f3\'ef\'e0\'eb\'e8\cf1\par
+\par
+\par
+\cf3 /*\cf1\par
+\cf3  *\'c4\'c7_2: \'d4\'f3\'ed\'ea\'f6\'e8\'ff Main \'ff\'e2\'eb\'ff\'e5\'f2\'f1\'ff \'f2\'ee\'f7\'ea\'ee\'e9 \'e2\'f5\'ee\'e4\'e0, \'f1 \'ea\'ee\'f2\'ee\'f0\'ee\'e9 \'ed\'e0\'f7\'e8\'ed\'e0\'e5\'f2\'f1\'ff \'e2\'fb\'ef\'ee\'eb\'ed\'e5\'ed\'e8\'e5 \'ea\'ee\'e4\'e0 \'ef\'f0\'ee\'e3\'f0\'e0\'ec\'ec\'fb.\cf1\par
+\cf3  *\tab\'d4\'f3\'ed\'ea\'f6\'e8\'ff \'e7\'e0\'ef\'f3\'f1\'ea\'e0\'e5\'f2 \'e1\'e5\'f1\'ea\'ee\'ed\'e5\'f7\'ed\'fb\'e9 \'f6\'e8\'ea\'eb, \'ea\'ee\'f2\'ee\'f0\'fb\'e9 \'ec\'ee\'e6\'ed\'ee \'f0\'e0\'e7\'e4\'e5\'eb\'e8\'f2\'fc \'ed\'e0 \'e4\'e2\'e0 \'e1\'eb\'ee\'ea\'e0:\cf1\par
+\cf3  *\tab\tab 1. \'c8\'ed\'e8\'f6\'e8\'e0\'eb\'e8\'e7\'e0\'f6\'e8\'ff \'ed\'ee\'e2\'ee\'e9 \'e8\'e3\'f0\'fb.\cf1\par
+\cf3  *\tab\tab\tab 1.1. \'cf\'ee\'e4\'e2\'ff\'e7\'fb\'e2\'e0\'e5\'ec \'ea \'f2\'e0\'e9\'ec\'e5\'f0\'f3 \'e3\'e5\'ed\'e5\'f0\'e0\'f2\'ee\'f0 \'f1\'eb\'f3\'f7\'e0\'e9\'ed\'fb\'f5 \'f7\'e8\'f1\'e5\'eb \'e4\'eb\'ff \'f0\'e0\'e7\'ec\'e5\'f9\'e5\'ed\'e8\'ff \'ec\'e8\'ed;\cf1\par
+\cf3  *\tab\tab\tab 1.2. \'c4\'e2\'ee\'e9\'ed\'ee\'e9 \'f6\'e8\'ea\'eb \'f1 \'e7\'e0\'ef\'ee\'eb\'ed\'e5\'ed\'e8\'e5\'ec \'e4\'e2\'f3\'f5 \'e4\'e2\'f3\'ec\'e5\'f0\'ed\'fb\'f5 \'ec\'e0\'f1\'f1\'e8\'e2\'ee\'e2 \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'ff\'ec\'e8 0 \'e8 -2,\cf1\par
+\cf3  *\tab\tab\tab\tab\'ed\'ee \'ed\'e5 \'ef\'ee\'eb\'ed\'ee\'f1\'f2\'fc\'fe 100 * 100, \'e0 \'e2 \'f0\'e0\'e7\'ec\'e5\'f0\'e0\'f5 \'ef\'ee\'eb\'ff \'ef\'ee \'ea\'ee\'ed\'f1\'f2\'e0\'ed\'f2\'e0\'ec 9 * 9;\cf1\par
+\cf3  *\tab\tab\tab 1.3. \'c4\'e2\'ee\'e9\'ed\'ee\'e9 \'f6\'e8\'ea\'eb, \'ee\'e4\'e8\'ed \'e8\'e7 \'ea\'ee\'f2\'ee\'f0\'fb\'f5 \'ee\'e1\'f5\'ee\'e4\'e8\'f2 \'ea\'ee\'eb\'e8\'f7\'e5\'f1\'f2\'e2\'ee \'ec\'e8\'ed, \'e0 \'e2\'f2\'ee\'f0\'ee\'e9 \'e1\'e5\'f1\'ea\'ee\'ed\'e5\'f7\'ed\'ee\cf1\par
+\cf3  *\tab\tab\tab\tab\'e3\'e5\'ed\'e5\'f0\'e8\'f0\'f3\'e5\'f2 \'f0\'e0\'ed\'e4\'ee\'ec\'ed\'fb\'e5 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'fb \'f1 \'ef\'f0\'ee\'e2\'e5\'f0\'ea\'ee\'e9 \'ed\'e0 \'f1\'ee\'e2\'ef\'e0\'e4\'e5\'ed\'e8\'e5 \'f1 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'e0\'ec\'e8\cf1\par
+\cf3  *\tab\tab\tab\tab\'f0\'e0\'ed\'e5\'e5 \'f3\'f1\'f2\'e0\'ed\'ee\'e2\'eb\'e5\'ed\'ed\'fb\'f5 \'ec\'e8\'ed;\cf1\par
+\cf3  * \tab\tab\tab 1.4. \'c4\'e2\'e0 \'e4\'e2\'ee\'e9\'ed\'fb\'f5 \'f6\'e8\'ea\'eb\'e0, \'ef\'e5\'f0\'e2\'e0\'ff \'ef\'e0\'f0\'e0 \'ea\'ee\'f2\'ee\'f0\'fb\'f5 \'ee\'e1\'f5\'ee\'e4\'e8\'f2 \'ef\'ee \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'e0\'ec \'ea\'e0\'f0\'f2\'f3 \'ec\'e8\'ed \'e8\cf1\par
+\cf3  *\tab\tab\tab\tab\'e8\'f9\'e5\'f2 \'ef\'f3\'f1\'f2\'fb\'e5 \'ea\'eb\'e5\'f2\'ea\'e8, \'e0 \'e2\'f2\'ee\'f0\'e0\'ff \'ef\'e0\'f0\'e0 \'f6\'e8\'ea\'eb\'ee\'e2 \'ee\'e1\'f5\'ee\'e4\'e8\'f2 \'f1\'ee\'f1\'e5\'e4\'ed\'e8\'e5 \'ea\'eb\'e5\'f2\'ea\'e8 \'e8 \'f1\'f3\'ec\'ec\'e8\'f0\'f3\'e5\'f2\cf1\par
+\cf3  *\tab\tab\tab\tab\'ee\'ea\'f0\'f3\'e6\'e0\'fe\'f9\'e8\'e5 \'ec\'e8\'ed\'fb, \'e8\'f1\'ea\'eb\'fe\'f7\'e0\'ff \'e2\'fb\'f5\'ee\'e4 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2 \'e7\'e0 \'ea\'f0\'e0\'e9 \'ea\'e0\'f0\'f2\'fb.\cf1\par
+\cf3  *\tab\tab 2. \'c1\'e5\'f1\'ea\'ee\'ed\'e5\'f7\'ed\'fb\'e9 \'f6\'e8\'ea\'eb \'f5\'ee\'e4\'e0 \'e8\'e3\'f0\'fb.\cf1\par
+\cf3  *\tab\tab\tab 2.1. \'c2\'fb\'e7\'fb\'e2\'e0\'e5\'ec \'f4\'f3\'ed\'ea\'f6\'e8\'fe print_field \'e4\'eb\'ff \'ee\'f2\'f0\'e8\'f1\'ee\'e2\'ea\'e8 \'f1\'e8\'e3\'f0\'ee\'e2\'ee\'e3\'ee \'ef\'ee\'eb\'ff (\'f1\'ec. \'c4\'c7_3);\cf1\par
+\cf3  *\tab\tab\tab 2.2. \'c2\'fb\'e2\'ee\'e4\'e8\'ec \'e7\'e0\'ef\'f0\'ee\'f1 \'e4\'eb\'ff \'e2\'e2\'ee\'e4\'e0 \'ea\'ee\'ec\'e0\'ed\'e4\'fb \'e8 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2;\cf1\par
+\cf3  *\tab\tab\tab 2.3. \'c8\'ed\'e8\'f6\'e8\'e0\'eb\'e8\'e7\'e8\'f0\'f3\'e5\'ec \'f1\'f2\'f0\'ee\'ea\'ee\'e2\'f3\'fe \'ef\'e5\'f0\'e5\'ec\'e5\'ed\'ed\'f3\'fe \'e8 \'ef\'f0\'e8\'ed\'e8\'ec\'e0\'e5\'ec \'e5\'e5 \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'e5 \'f1 \'ea\'ee\'ed\'f1\'ee\'eb\'e8;\cf1\par
+\cf3  *\tab\tab\tab 2.4. \'c7\'e0\'ef\'f3\'f1\'ea\'e0\'e5\'ec \'eb\'ee\'e3\'e8\'f7\'e5\'f1\'ea\'e8\'e9 \'e1\'eb\'ee\'ea, \'e2\'fb\'e1\'e8\'f0\'e0\'ff \'ee\'e4\'e8\'ed \'e8\'e7 4 \'e2\'e0\'f0\'e8\'e0\'ed\'f2\'ee\'e2:\cf1\par
+\cf3  *\tab\tab\tab\tab 2.4.1 "\\o" - \'c8\'ed\'e8\'f6\'e8\'e0\'eb\'e8\'e7\'e8\'f0\'f3\'e5\'ec, \'ef\'ee\'eb\'f3\'f7\'e0\'e5\'ec \'e8 \'f1\'ec\'e5\'f9\'e0\'e5\'ec \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'fb \'ea\'e0\'f0\'f2\'fb, \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'ec\cf1\par
+\cf3  *\tab\tab\tab\tab\tab\'e2\'fb\'f5\'ee\'e4 \'e7\'e0 \'e3\'f0\'e0\'ed\'e8\'f6\'fb \'ea\'e0\'f0\'f2\'fb, \'f4\'f3\'ed\'ea\'f6\'e8\'e5\'e9 !open_cell \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'ec \'ed\'e0 \'ea\'ee\'ed\'e5\'f6\cf1\par
+\cf3  *\tab\tab\tab\tab\tab\'e8\'e3\'f0\'fb \'ef\'ee\'ef\'e0\'e4\'e0\'ed\'e8\'e5\'ec \'ed\'e0 \'ec\'e8\'ed\'f3 (\'f1\'ec. \'c4\'c7_4) \'e8 \'f4\'f3\'ed\'ea\'f6\'e8\'e5\'e9 is_win \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'ec\cf1\par
+\cf3  *\tab\tab\tab\tab\tab\'ee\'ea\'ee\'ed\'f7\'e0\'ed\'e8\'e5 \'e8\'e3\'f0\'fb \'ef\'ee\'e1\'e5\'e4\'ee\'e9 (\'f1\'ec. \'c4\'c7_6);\cf1\par
+\cf3  *\tab\tab\tab\tab 2.4.2 "\\f" - \'c8\'ed\'e8\'f6\'e8\'e0\'eb\'e8\'e7\'e8\'f0\'f3\'e5\'ec, \'ef\'ee\'eb\'f3\'f7\'e0\'e5\'ec \'e8 \'f1\'ec\'e5\'f9\'e0\'e5\'ec \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'fb \'ea\'e0\'f0\'f2\'fb, \'ef\'f0\'ee\'e2\'e5\'f0\'ff\'e5\'ec\cf1\par
+\cf3  *\tab\tab\tab\tab\tab\'e2\'fb\'f5\'ee\'e4 \'e7\'e0 \'e3\'f0\'e0\'ed\'e8\'f6\'fb \'ea\'e0\'f0\'f2\'fb \'e8 \'ec\'e5\'ed\'ff\'e5\'ec \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'e5 \'f4\'eb\'e0\'e6\'ea\'e0;\cf1\par
+\cf3  *\tab\tab\tab\tab 2.4.2 "\\n" - \'ef\'f0\'e5\'f0\'fb\'e2\'e0\'ed\'e8\'e5 \'f6\'e8\'ea\'eb\'e0 \'e8\'e3\'f0\'fb \'e8 \'e2\'ee\'e7\'e2\'f0\'e0\'f2 \'ea \'ed\'e0\'f7\'e0\'eb\'f3 \'ed\'ee\'e2\'ee\'e9 \'e8\'e3\'f0\'fb;\cf1\par
+\cf3  *\tab\tab\tab\tab 2.4.2 "\\q" - \'e2\'fb\'f5\'ee\'e4 \'e8\'e7 \'ef\'f0\'ee\'e3\'f0\'e0\'ec\'ec\'fb.\cf1\par
+\cf3  */\cf1\par
+\par
+\cf6 int\cf1  main()\par
+\{\par
+\tab\cf6 while\cf1  (\cf6 true\cf1 ) \cf3 //\'e5\'f1\'eb\'e8 \'ec\'fb \'ef\'ee\'ea\'e0 \'ed\'e5 \'ed\'e0\'f1\'f2\'f3\'ef\'e8\'eb\'e8 \'ed\'e0 \'e1\'ee\'ec\'e1\'f3 \'e8 \'ee\'f2\'ea\'f0\'fb\'eb\'e8 \'f5\'ee\'f0\'ee\'f8\'f3\'fe \'ea\'eb\'e5\'f2\'ea\'f3, \'f2\'ee \'e2\'fb\'ef\'ee\'eb\'ed\'ff\'e5\'ec \'f1\'eb\'e5\'e4\'f3\'fe\'f9\'e8\'e5 \'f3\'f1\'eb\'ee\'e2\'e8\'ff\cf1\par
+\tab\{\par
+\tab\tab srand(time(0)); \cf3 //\'f0\'e0\'f1\'f1\'f2\'e0\'ed\'ee\'e2\'ea\'e0 \'e1\'ee\'ec\'e1 \'e1\'f3\'e4\'e5\'f2 \'ec\'e5\'ed\'ff\'f2\'fc \cf1\par
+\tab\tab\cf6 for\cf1  (\cf6 int\cf1  i = 0; i < N; i++)\par
+\tab\tab\{\par
+\tab\tab\tab\cf6 for\cf1  (\cf6 int\cf1  j = 0; j < M; j++) \{\par
+\tab\tab\tab\tab field[i][j] = 0;\par
+\tab\tab\tab\tab field_p[i][j] = -2;\par
+\tab\tab\tab\}\par
+\tab\tab\}\par
+\tab\tab\cf6 for\cf1  (\cf6 int\cf1  i = 0; i < K; ++i) \{ \cf3 //\'ea\'ee\'eb-\'e2\'ee \'e1\'ee\'ec\'e1\cf1\par
+\tab\tab\tab\cf6 while\cf1  (\cf6 true\cf1 ) \{\par
+\tab\tab\tab\tab\cf6 int\cf1  x = rand() % N; \cf3 //\'f0\'e0\'ed\'e4\'ee\'ec\'ed\'ee\'e5 \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'e5\cf1\par
+\tab\tab\tab\tab\cf6 int\cf1  y = rand() % M;\par
+\tab\tab\tab\tab\cf6 if\cf1  (field[x][y] != -1)\par
+\tab\tab\tab\tab\{\par
+\tab\tab\tab\tab\tab field[x][y] = -1;\par
+\tab\tab\tab\tab\tab\cf6 break\cf1 ;\par
+\tab\tab\tab\tab\}\par
+\tab\tab\tab\}\par
+\tab\tab\}\par
+\tab\tab\cf6 for\cf1  (\cf6 int\cf1  i = 0; i < N; i++) \{\par
+\tab\tab\tab\cf6 for\cf1  (\cf6 int\cf1  j = 0; j < M; j++) \{\par
+\tab\tab\tab\tab\cf6 if\cf1  (field[i][j] != -1) \{\par
+\tab\tab\tab\tab\tab field[i][j] = 0;\par
+\tab\tab\tab\tab\tab\cf6 for\cf1  (\cf6 int\cf1  i2 = i - 1; i2 <= i + 1; ++i2) \{\par
+\tab\tab\tab\tab\tab\tab\cf6 for\cf1  (\cf6 int\cf1  j2 = j - 1; j2 <= j + 1; ++j2) \{\par
+\tab\tab\tab\tab\tab\tab\tab\cf6 if\cf1  (i2 >= 0 && i2 < N && j2 >= 0 && j2 <= M &&\par
+\tab\tab\tab\tab\tab\tab\tab\tab field[i2][j2] == -1) ++field[i][j];\par
+\tab\tab\tab\tab\tab\tab\}\par
+\tab\tab\tab\tab\tab\}\par
+\tab\tab\tab\tab\}\par
+\tab\tab\tab\}\par
+\tab\tab\}\par
+\tab\tab\cf6 while\cf1  (\cf6 true\cf1 ) \{\par
+\tab\tab\tab print_field();\par
+\tab\tab\tab cout \cf7 <<\cf1  \cf5 "Enter comand:"\cf1 ;\par
+\tab\tab\tab\cf3 /*\cf1\par
+\cf3\tab\tab\tab\\o x y\cf1\par
+\cf3\tab\tab\tab\\f x y\cf1\par
+\cf3\tab\tab\tab\\n\cf1\par
+\cf3\tab\tab\tab\\q\cf1\par
+\cf3\tab\tab\tab */\cf1\par
+\tab\tab\tab\cf8 string\cf1  comand;\par
+\tab\tab\tab cin \cf7 >>\cf1  comand;\par
+\tab\tab\tab\cf6 if\cf1  (comand \cf7 ==\cf1  \cf5 "{{\field{\*\fldinst{HYPERLINK "\\\\\\\\o"}}{\fldrslt{\\\\o\ul0\cf0}}}}\f0\fs16 "\cf1 ) \{\par
+\tab\tab\tab\tab\cf3 // \'ef\'f0\'e8 \'f3\'ea\'e0\'e7\'e0\'ed\'e8\'e8 \'ea\'ee\'ec\'e0\'ed\'e4\'fb "\'ee\'f2\'ea\'f0\'fb\'f2\'fc" \'e7\'e0\'e4\'e0\'e5\'ec \'e2\'ee\'e7\'ec\'ee\'e6\'ed\'ee\'f1\'f2\'fc \'e2\'fb\'e1\'ee\'f0\'e0 \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2, \'f2.\'e5. \'ea\'eb\'e5\'f2\'ee\'f7\'ea\'e8, \'ea\'ee\'f2\'ee\'f0\'f3\'fe\cf1\par
+\tab\tab\tab\tab\cf3 //\'f5\'ee\'f2\'e8\'ec \'ee\'f2\'ea\'f0\'fb\'f2\'fc \cf1\par
+\tab\tab\tab\tab\cf6 int\cf1  x, y;\par
+\tab\tab\tab\tab cin \cf7 >>\cf1  x \cf7 >>\cf1  y;\par
+\tab\tab\tab\tab --x; --y;\par
+\tab\tab\tab\tab\cf3 // \'ee\'f2\'ea\'f0\'fb\'e2\'e0\'e5\'ec \'ea\'eb\'e5\'f2\'ea\'e8\cf1\par
+\tab\tab\tab\tab\cf6 if\cf1  (x < 0 || x >= N || y < 0 || y >= M || field_p[x][y] >= 0) \cf6 continue\cf1 ;\par
+\tab\tab\tab\tab\cf6 if\cf1  (!open_cell(x, y)) \{\par
+\tab\tab\tab\tab\tab end_game();\par
+\tab\tab\tab\tab\tab\cf6 break\cf1 ;\par
+\tab\tab\tab\tab\}\par
+\tab\tab\tab\tab\cf6 if\cf1  (is_win()) \{\par
+\tab\tab\tab\tab\tab end_game(\cf6 true\cf1 );\par
+\tab\tab\tab\tab\tab\cf6 break\cf1 ;\par
+\tab\tab\tab\tab\}\par
+\tab\tab\tab\}\par
+\tab\tab\tab\cf6 else\cf1  \cf6 if\cf1  (comand \cf7 ==\cf1  \cf5 "{{\field{\*\fldinst{HYPERLINK "\\\\\\\\f"}}{\fldrslt{\\\\f\ul0\cf0}}}}\f0\fs16 "\cf1 ) \{\par
+\tab\tab\tab\tab\cf3 // \'e2\'e2\'ee\'e4\'e8\'ec \'ea\'ee\'ee\'f0\'e4\'e8\'ed\'e0\'f2\'fb\cf1\par
+\tab\tab\tab\tab\cf6 int\cf1  x, y;\par
+\tab\tab\tab\tab cin \cf7 >>\cf1  x \cf7 >>\cf1  y;\par
+\tab\tab\tab\tab --x; --y;\par
+\tab\tab\tab\tab\cf6 if\cf1  (x < 0 || x >= N || y < 0 || y >= M || field_p[x][y] >= 0) \cf6 continue\cf1 ;\par
+\tab\tab\tab\tab\cf3 // \'f1\'f2\'e0\'e2\'e8\'ec \'f4\'eb\'e0\'e6\'ee\'ea\cf1\par
+\tab\tab\tab\tab\cf6 if\cf1  (field_p[x][y] == -1) field_p[x][y] = -2;\par
+\tab\tab\tab\tab\cf6 else\cf1  field_p[x][y] = -1;\par
+\tab\tab\tab\}\par
+\tab\tab\tab\cf6 else\cf1  \cf6 if\cf1  (comand \cf7 ==\cf1  \cf5 "{{\field{\*\fldinst{HYPERLINK "\\\\\\\\n"}}{\fldrslt{\\\\n\ul0\cf0}}}}\f0\fs16 "\cf1 ) \{\par
+\tab\tab\tab\tab\cf6 break\cf1 ;\par
+\tab\tab\tab\}\par
+\tab\tab\tab\cf6 else\cf1  \cf6 if\cf1  (comand \cf7 ==\cf1  \cf5 "{{\field{\*\fldinst{HYPERLINK "\\\\\\\\q"}}{\fldrslt{\\\\q\ul0\cf0}}}}\f0\fs16 "\cf1 ) \{\par
+\tab\tab\tab\tab\cf6 return\cf1  0;\par
+\tab\tab\tab\}\par
+\tab\tab\}\par
+\tab\}\par
+\}\par
+\par
+\cf3 //\'e7\'e0\'e4\'e0\'e5\'ec \'ef\'ee\'eb\'e5\cf1\par
+\cf3 //\'e4\'ee\'eb\'e3\'ee \'e8 \'ec\'f3\'f7\'e8\'f2\'e5\'eb\'fc\'ed\'ee \'f0\'e0\'f1\'f1\'ec\'e0\'f2\'f0\'e8\'e2\'e0\'e5\'ec \'e2\'f1\'e5 \'e2\'ee\'e7\'ec\'ee\'e6\'ed\'fb\'e5 \'e2\'e0\'f0\'e8\'e0\'ed\'f2\'fb, \'f7\'f2\'ee \'ec\'ee\'e6\'e5\'f2 \'e1\'fb\'f2\'fc \'e2 \'ea\'eb\'e5\'f2\'ea\'e5:\cf1\par
+\cf3 //\'f3\'f1\'eb\'ee\'e2\'e8\'e5 "\'ec\'fb \'e5\'f9\'e5 \'e6\'e8\'e2\'fb" - \'ef\'f0\'e0\'e2\'e4\'e0 -- \'f2\'ee \'ec\'fb \'f1 \'e2\'e0\'ec\'e8 \'f8\'e0\'e3\'e0\'e5\'ec \'e4\'e0\'eb\'fc\'f8\'e5 \'e8 \'e8\'e3\'f0\'e0\'e5\'ec \'e4\'e0\'eb\'fc\'f8\'e5\cf1\par
+\cf3 //\'f3\'f1\'eb\'ee\'e2\'e8\'e5 "\'ec\'fb \'ed\'e0\'f0\'e2\'e0\'eb\'e8\'f1\'fc \'ed\'e0 \'e1\'ee\'ec\'e1\'f3" -- \'f2\'ee \'e8\'e3\'f0\'e0 \'e7\'e0\'ea\'e0\'ed\'f7\'e8\'e2\'e0\'e5\'f2\'f1\'ff \'e8 \'ed\'e0 \'ef\'ee\'eb\'e5 \'ef\'ee\'ea\'e0\'e7\'fb\'e2\'e0\'fe\'f2 \'f0\'e0\'f1\'ef\'ee\'eb\'ee\'e6\'e5\'ed\'e8\'e5 \'e2\'f1\'e5\'f5 \'e1\'ee\'ec\'e1\cf1\par
+\cf3 //\'f6\'e8\'ea\'eb\'e0 - \'e1\'e5\'e3\'e0\'e5\'f2 \'ef\'ee \'e2\'f1\'e5\'ec \'ea\'eb\'e5\'f2\'ea\'e0\'ec \'f1\'e2\'ee\'e1\'ee\'e4\'ed\'fb\'ec, \'f1\'ec\'ee\'f2\'f0\'e8\'f2 \'f7\'f2\'ee \'f2\'f3\'e4\'e0 \'ec\'ee\'e6\'ed\'ee \'e2\'f1\'f2\'e0\'e2\'e8\'f2\'fc \cf1\par
+\cf3 //\'e1\'f3\'e4\'f3\'f2 \'f0\'e0\'f1\'f1\'f2\'e0\'e2\'eb\'ff\'f2\'fc\'f1\'ff \'e7\'ed\'e0\'f7\'e5\'ed\'e8\'ff, \'f1\'ea\'ee\'eb\'fc\'ea\'ee \'e1\'ee\'ec\'e1 \'e2 \'ee\'e1\'eb\'e0\'f1\'f2\'e8 \'ea\'eb\'e5\'f2\'ea\'e8\cf1\par
+\cf3 //\'ef\'ee\'ea\'e0 \'ec\'fb \'f1 \'e2\'e0\'ec\'e8 \'e5\'f9\'e5 \'e6\'e8\'e2\'fb, \'f3 \'ed\'e0\'f1 \'e8\'e3\'f0\'e0 \'e8\'e4\'e5\'f2 \'e8 \'ea\'e0\'e6\'e4\'fb\'e9 \'ed\'e0\'f8 \'f8\'e0\'e3, \'ea\'f0\'f3\'e3 \'f6\'e8\'ea\'eb\'e0 \'ef\'f0\'ee\'e4\'ee\'eb\'e6\'e0\'e5\'f2\'f1\'ff\f2\lang9\par
+}
+ 

@@ -1,25 +1,25 @@
-﻿// Пользователь вводит через пробел в консоль свои имя и фамилию. 
-// Получить 2 отдельные строки, где одна строка хранит имя, 
-// а другая фамилию. Использовать методы find() и erase().
+﻿//Пользователь вводит через пробел в консоль свои имя и фамилию. Получить 2 отдельные строки,
+//где одна строка хранит имя, а другая фамилию. Использовать методы find() и erase().
+
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main()
 {
-    string s;
-    string s1;
-    string s2;
+    string s1, s2;
     int i;
 
     cout << "Enter first and last name:" << endl;
-    cin >> s;
+    getline(cin, s1);
+    s2 = s1;
+    i = s1.find(" ");
 
-    i = s.find(""); cout << i;
-    s1 = s.erase(i, size(s) - 1);
-    s2 = s.erase(0, i);
+    s1 = s1.erase(i, size(s1) - i);
+    s2 = s2.erase(0, i + 1);
 
-    cout << s1 << endl;
-    cout << s2 << endl;
+    cout << "First name: " << s1 << endl;
+    cout << "Last name: " << s2 << endl;
 
     return 0;
 }

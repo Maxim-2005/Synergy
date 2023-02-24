@@ -1,0 +1,45 @@
+﻿#include <iostream>
+using namespace std;
+
+class Game
+{
+public:
+    string name;
+
+    Game(string name_ = "unknown", string genre_ = "unknown")
+    {
+        name = name_;
+        genre = set_genre(genre_);
+    }
+
+    string set_genre(string genre_)
+    {
+        if (genre_ != "unknown")
+            return genre_;
+        else
+            return "unknown";
+    }
+
+    string get_genre() {
+        if (genre != "unknown")
+            return genre;
+        else
+            return "not defined";
+
+    }
+
+private:
+    string genre;
+};
+
+int main()
+{
+    Game game = Game("Tetris", "Puzzle");
+    cout << "Game name: " << game.name << endl;
+    cout << "Game genre: " << game.get_genre() << endl << endl;
+
+    Game game2 = Game();
+    cout << "Game genre: " << game2.get_genre() << endl;
+
+    return 0;
+}
