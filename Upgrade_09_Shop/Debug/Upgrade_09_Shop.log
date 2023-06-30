@@ -1,0 +1,42 @@
+﻿  MyForm.cpp
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(330,89): warning C4566: символ, представленный универсальным именем символа "\u00E3", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(330,89): warning C4566: символ, представленный универсальным именем символа "\u00E0", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(330,89): warning C4566: символ, представленный универсальным именем символа "\u00EB", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(330,89): warning C4566: символ, представленный универсальным именем символа "\u00E5", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(330,89): warning C4566: символ, представленный универсальным именем символа "\u00EE", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(330,89): warning C4566: символ, представленный универсальным именем символа "\u00ED", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(330,89): warning C4566: символ, представленный универсальным именем символа "\u00E2", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(335,89): warning C4566: символ, представленный универсальным именем символа "\u00E3", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(335,89): warning C4566: символ, представленный универсальным именем символа "\u00E0", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(335,89): warning C4566: символ, представленный универсальным именем символа "\u00EB", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(335,89): warning C4566: символ, представленный универсальным именем символа "\u00E5", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(335,89): warning C4566: символ, представленный универсальным именем символа "\u00EE", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(335,89): warning C4566: символ, представленный универсальным именем символа "\u00ED", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(335,89): warning C4566: символ, представленный универсальным именем символа "\u00E2", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(340,67): warning C4566: символ, представленный универсальным именем символа "\u00E3", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(340,67): warning C4566: символ, представленный универсальным именем символа "\u00E0", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(340,67): warning C4566: символ, представленный универсальным именем символа "\u00EB", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(340,67): warning C4566: символ, представленный универсальным именем символа "\u00E5", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(340,67): warning C4566: символ, представленный универсальным именем символа "\u00EE", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(340,67): warning C4566: символ, представленный универсальным именем символа "\u00ED", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(340,67): warning C4566: символ, представленный универсальным именем символа "\u00E2", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(346,67): warning C4566: символ, представленный универсальным именем символа "\u00E3", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(346,67): warning C4566: символ, представленный универсальным именем символа "\u00E0", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(346,67): warning C4566: символ, представленный универсальным именем символа "\u00EB", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(346,67): warning C4566: символ, представленный универсальным именем символа "\u00E5", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(346,67): warning C4566: символ, представленный универсальным именем символа "\u00EE", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(346,67): warning C4566: символ, представленный универсальным именем символа "\u00ED", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(346,67): warning C4566: символ, представленный универсальным именем символа "\u00E2", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(353,85): warning C4566: символ, представленный универсальным именем символа "\u00E3", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(353,85): warning C4566: символ, представленный универсальным именем символа "\u00E0", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(353,85): warning C4566: символ, представленный универсальным именем символа "\u00EB", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(353,85): warning C4566: символ, представленный универсальным именем символа "\u00E5", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(353,85): warning C4566: символ, представленный универсальным именем символа "\u00EE", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(353,85): warning C4566: символ, представленный универсальным именем символа "\u00ED", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(353,85): warning C4566: символ, представленный универсальным именем символа "\u00E2", невозможно представить в текущей кодовой странице (1251)
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.h(23,14): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.cpp(64,5): error C2653: Upgrade_09_Shop: не является именем класса или пространства имен
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.cpp(64,22): error C2065: MyForm: необъявленный идентификатор
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.cpp(64,29): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "form"
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.cpp(64,29): error C2065: form: необъявленный идентификатор
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\MyForm.cpp(65,24): error C2065: form: необъявленный идентификатор

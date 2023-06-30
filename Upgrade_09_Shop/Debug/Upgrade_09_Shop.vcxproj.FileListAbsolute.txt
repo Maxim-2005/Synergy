@@ -1,0 +1,2 @@
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\Debug\Upgrade_09_Shop.vcxproj.AssemblyReference.cache
+D:\Documents\MyPrograms\Synergy\Upgrade_09_Shop\Debug\Upgrade_09_Shop.exe
